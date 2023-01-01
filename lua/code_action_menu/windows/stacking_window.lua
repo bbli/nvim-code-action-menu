@@ -12,8 +12,7 @@ local function decide_for_direction(anchor_window)
 
   -- We don't know how big the stack will grow. Therefore take the direction
   -- with more space left and hope it is enough in most cases.
-  return free_space_top > free_space_bottom
-      and WindowStackDirectionEnum.UPWARDS
+  return free_space_top > free_space_bottom and WindowStackDirectionEnum.UPWARDS
     or WindowStackDirectionEnum.DOWNWARDS
 end
 
@@ -104,7 +103,7 @@ function StackingWindow:get_window_configuration(window_configuration_options)
     height = window_height,
     focusable = false,
     style = 'minimal',
-    border = 'single',
+    border = vim.g.code_action_menu_window_border or 'single',
   }
 end
 
