@@ -72,6 +72,10 @@ apply it right away. In any case the menu window will close itself. If you want
 to manually close the window without selecting an action, just hit `<Esc>` or
 `q`.
 
+This plugin only supports nvim_lsp, if you are using coc.nvim, you can install
+[coc-code-action-menu.nvim](https://github.com/xiyaowong/coc-code-action-menu.nvim)
+to add support for coc.nvim.
+
 ## Customization
 
 The plugin allows for a bunch of customization. While there is no classic
@@ -87,6 +91,18 @@ At the current state of documentation I must redirect you to the syntax files in
 the source code of the plugin to get a list of available highlight groups. The
 user can simply overwrite any of the default mappings to his liking.
 
+### Window Appearance
+
+The following global variables can be set to alternate the appearance of the
+windows:
+
+```lua
+vim.g.code_action_menu_window_border = 'single'
+```
+
+```vim
+let g:code_action_menu_window_border = 'single'
+```
 ### Disable parts of the UI
 
 The following global variables can be set to disable parts of the user
@@ -95,9 +111,11 @@ interface:
 ```lua
 vim.g.code_action_menu_show_details = false
 vim.g.code_action_menu_show_diff = false
+vim.g.code_action_menu_show_action_kind = false
 ```
 
 ```vim
 let g:code_action_menu_show_details = v:false
 let g:code_action_menu_show_diff = v:false
+let g:code_action_menu_show_action_kind = v:false
 ```
